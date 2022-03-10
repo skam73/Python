@@ -1,4 +1,4 @@
-
+import random
 import json
 
 # Задание 1
@@ -114,6 +114,27 @@ except Exception as e:
     print(f'Error hw_05_04! Something wrong {str(e)}')
 
 
+#  Задание 5
+#  Создать (программно) текстовый файл, записать в него программно набор чисел, разделённых пробелами. 
+#  Программа должна подсчитывать сумму чисел в файле и выводить её на экран.
+
+
+try:
+
+    len_digit = 10
+    name_file_05_05 = 'hw_05_05.txt'
+    with open(name_file_05_05, 'w', encoding="UTF-8") as f:
+        for i in range(0, len_digit):
+            f.write(str(random.randint(3, 9)) + " ")
+    with open(name_file_05_05, 'r', encoding="UTF-8") as f:
+            sum_digits_in_file = 0
+            read_string_list = (f.read()).split()
+            for num in read_string_list:
+                sum_digits_in_file += int(num)
+            print(f"Calculating sum in file {name_file_05_05} : {sum_digits_in_file}")
+
+except Exception as e:
+    print(f'Error! Something wrong {str(e)}')
 
 # Задание 6
 # Сформировать (не программно) текстовый файл. В нём каждая строка должна описывать учебный предмет и наличие лекционных,
